@@ -14,6 +14,7 @@
 		F4D74ABD1AE4725000630239 /* GoogleImageSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74ABC1AE4725000630239 /* GoogleImageSearchTests.swift */; };
 		F4D74AC71AE4734F00630239 /* ImageSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74AC61AE4734F00630239 /* ImageSearchController.swift */; };
 		F4EFB6EC1AE4835800A0468E /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB6EB1AE4835800A0468E /* ImageCell.swift */; };
+		F4EFB6F11AE4868A00A0468E /* GoogleImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB6F01AE4868A00A0468E /* GoogleImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		F4D74ABC1AE4725000630239 /* GoogleImageSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleImageSearchTests.swift; sourceTree = "<group>"; };
 		F4D74AC61AE4734F00630239 /* ImageSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchController.swift; sourceTree = "<group>"; };
 		F4EFB6EB1AE4835800A0468E /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		F4EFB6F01AE4868A00A0468E /* GoogleImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +81,9 @@
 		F4D74AA31AE4725000630239 /* GoogleImageSearch */ = {
 			isa = PBXGroup;
 			children = (
-				F4D74AAA1AE4725000630239 /* Main.storyboard */,
-				F4D74AC61AE4734F00630239 /* ImageSearchController.swift */,
-				F4EFB6EB1AE4835800A0468E /* ImageCell.swift */,
+				F4EFB6ED1AE4861900A0468E /* Model */,
+				F4EFB6EE1AE4862C00A0468E /* View */,
+				F4EFB6EF1AE4863D00A0468E /* Controller */,
 				F4D74AA41AE4725000630239 /* Supporting Files */,
 			);
 			path = GoogleImageSearch;
@@ -113,6 +115,31 @@
 				F4D74ABB1AE4725000630239 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F4EFB6ED1AE4861900A0468E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4EFB6F01AE4868A00A0468E /* GoogleImageLoader.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F4EFB6EE1AE4862C00A0468E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4D74AAA1AE4725000630239 /* Main.storyboard */,
+				F4EFB6EB1AE4835800A0468E /* ImageCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F4EFB6EF1AE4863D00A0468E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4D74AC61AE4734F00630239 /* ImageSearchController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4D74AA71AE4725000630239 /* AppDelegate.swift in Sources */,
+				F4EFB6F11AE4868A00A0468E /* GoogleImageLoader.swift in Sources */,
 				F4D74AC71AE4734F00630239 /* ImageSearchController.swift in Sources */,
 				F4EFB6EC1AE4835800A0468E /* ImageCell.swift in Sources */,
 			);
@@ -415,6 +443,7 @@
 				F4D74AC21AE4725000630239 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F4D74AC31AE4725000630239 /* Build configuration list for PBXNativeTarget "GoogleImageSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +452,7 @@
 				F4D74AC51AE4725000630239 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
