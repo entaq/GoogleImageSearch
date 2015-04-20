@@ -1,16 +1,15 @@
-//
-//  ImageSearchController.swift
-//  GoogleImageSearch
-//
-//  Created by Arun Nagarajan on 4/19/15.
-//  Copyright (c) 2015 Arun Nagarajan. All rights reserved.
-//
-
 import UIKit
 
 let reuseIdentifier = "ImageCell"
 
-class ImageSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class ImageSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+
+    // MARK: UITextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        println("search term is \(textField.text)")
+        textField.resignFirstResponder()
+        return true
+    }
 
     // MARK: UICollectionViewDataSource
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
