@@ -14,9 +14,25 @@ class GoogleImageSearchTests: QuickSpec {
             let _ = viewController.view
         }
 
-        describe(".viewDidLoad()") {
+        describe("initial state") {
             it("has no default search value") {
-                expect(viewController.currentSearchTerm).to(beNil())
+                expect(viewController.searchField.text).to(equal(""))
+            }
+
+            it("should show the right place holder text") {
+                expect(viewController.searchField.placeholder).to(equal("Search"))
+            }
+
+            it("should not be showing the activity indicator") {
+                expect(viewController.activityIndicator.hidden).to(beTrue())
+            }
+        }
+
+        describe("search text was entered") {
+            it("starts the search and shows the activity invicator") {
+                viewController.searchField.text = "nadal"
+                viewController.textFieldShouldReturn(viewController.searchField)
+                expect(viewController.activityIndicator.hidden).to(beFalse())
             }
         }
     }

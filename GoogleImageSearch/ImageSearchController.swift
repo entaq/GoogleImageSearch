@@ -6,14 +6,12 @@ let scaleConstant : CGFloat = 0.67
 public class ImageSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     var searchResults = [GoogleImage]()
     let google = GoogleImageSearch()
-
     var fetching = false
     var currentPage = 0
-    public var currentSearchTerm : String?
-
+    var currentSearchTerm : String?
     public var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
 
-    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet public weak var searchField: UITextField!
 
     override public func viewDidLoad() {
         activityIndicator.hidesWhenStopped = true
@@ -50,10 +48,6 @@ public class ImageSearchController: UICollectionViewController, UICollectionView
         }
     }
 
-    func photoForIndexPath(indexPath: NSIndexPath) -> GoogleImage {
-        return searchResults[indexPath.row]
-    }
-
     override public func scrollViewDidScroll(scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
@@ -85,21 +79,15 @@ public class ImageSearchController: UICollectionViewController, UICollectionView
 
     override public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ImageCell
-
-        let googlePhoto = photoForIndexPath(indexPath)
-        cell.imageView.image = googlePhoto.thumbnail
-
+        cell.imageView.image = searchResults[indexPath.row].thumbnail
         return cell
     }
 
     // MARK: UICollectionViewDelegateFlowLayout
     public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let googlePhoto =  photoForIndexPath(indexPath)
-
-        if var size = googlePhoto.thumbnail?.size {
+        if var size = searchResults[indexPath.row].thumbnail?.size {
             size.height = size.height * scaleConstant
             size.width = size.width * scaleConstant
-
             return size
         }
         return CGSize(width: 100, height: 100)
