@@ -1,6 +1,7 @@
 # GoogleImageSearch
 Swift implementation of (old) Google Image Search API
 
+![](https://github.com/entaq/GoogleImageSearch/blob/master/search_demo.gif)
 ## Features
 * [UICollectionViewController](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UICollectionViewController_clas/index.html) with a Flow Layout in Swift
 * Search field in the Navigation Bar 
