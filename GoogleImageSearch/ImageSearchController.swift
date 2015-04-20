@@ -11,9 +11,21 @@ class ImageSearchController: UICollectionViewController, UICollectionViewDelegat
     var currentPage = 0
     var currentSearchTerm : String?
 
+    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+
+    @IBOutlet weak var searchField: UITextField!
+
+    override func viewDidLoad() {
+        activityIndicator.hidesWhenStopped = true
+        searchField.addSubview(activityIndicator)
+        activityIndicator.frame = searchField.bounds
+    }
+
     func loadDataFromGoogle(){
         google.searchForTerm(currentSearchTerm!, page: currentPage) {
             results, error in
+            self.activityIndicator.stopAnimating()
+
             if let error = error {
                 var errorUI = UIAlertController(title: "Error", message: error.description, preferredStyle: .Alert)
                 errorUI.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
@@ -60,6 +72,7 @@ class ImageSearchController: UICollectionViewController, UICollectionViewDelegat
         searchResults = [GoogleImage]()
         collectionView?.reloadData()
         currentPage = 0
+        activityIndicator.startAnimating()
         loadDataFromGoogle()
         textField.resignFirstResponder()
         return true

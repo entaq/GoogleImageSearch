@@ -61,6 +61,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="KUt-aq-YSJ" id="fCE-h6-Qpx"/>
+                        <outlet property="searchField" destination="cSs-3f-2bd" id="qGH-5m-A9r"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWC-aL-Ppi" userLabel="First Responder" sceneMemberID="firstResponder"/>
