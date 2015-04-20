@@ -3,19 +3,19 @@ import UIKit
 let reuseIdentifier = "ImageCell"
 let scaleConstant : CGFloat = 0.67
 
-class ImageSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+public class ImageSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     var searchResults = [GoogleImage]()
     let google = GoogleImageSearch()
 
     var fetching = false
     var currentPage = 0
-    var currentSearchTerm : String?
+    public var currentSearchTerm : String?
 
-    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+    public var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
 
     @IBOutlet weak var searchField: UITextField!
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         activityIndicator.hidesWhenStopped = true
         searchField.addSubview(activityIndicator)
         activityIndicator.frame = searchField.bounds
@@ -54,7 +54,7 @@ class ImageSearchController: UICollectionViewController, UICollectionViewDelegat
         return searchResults[indexPath.row]
     }
 
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
+    override public func scrollViewDidScroll(scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
 
@@ -67,7 +67,7 @@ class ImageSearchController: UICollectionViewController, UICollectionViewDelegat
     }
 
     // MARK: UITextFieldDelegate
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
         currentSearchTerm = textField.text
         searchResults = [GoogleImage]()
         collectionView?.reloadData()
@@ -79,11 +79,11 @@ class ImageSearchController: UICollectionViewController, UICollectionViewDelegat
     }
 
     // MARK: UICollectionViewDataSource
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchResults.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ImageCell
 
         let googlePhoto = photoForIndexPath(indexPath)
@@ -93,7 +93,7 @@ class ImageSearchController: UICollectionViewController, UICollectionViewDelegat
     }
 
     // MARK: UICollectionViewDelegateFlowLayout
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let googlePhoto =  photoForIndexPath(indexPath)
 
         if var size = googlePhoto.thumbnail?.size {
