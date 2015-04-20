@@ -18,7 +18,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="teA-ib-5X1">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="teA-ib-5X1" customClass="ImageCell" customModule="GoogleImageSearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -37,6 +37,9 @@
                                     <constraint firstAttribute="bottom" secondItem="S6k-st-Cgx" secondAttribute="bottom" id="bqZ-IZ-gPx"/>
                                     <constraint firstAttribute="trailing" secondItem="S6k-st-Cgx" secondAttribute="trailing" id="j1p-U3-azR"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="S6k-st-Cgx" id="AF8-LL-7NL"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

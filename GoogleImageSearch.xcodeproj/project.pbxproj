@@ -13,6 +13,7 @@
 		F4D74AB11AE4725000630239 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4D74AAF1AE4725000630239 /* LaunchScreen.xib */; };
 		F4D74ABD1AE4725000630239 /* GoogleImageSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74ABC1AE4725000630239 /* GoogleImageSearchTests.swift */; };
 		F4D74AC71AE4734F00630239 /* ImageSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74AC61AE4734F00630239 /* ImageSearchController.swift */; };
+		F4EFB6EC1AE4835800A0468E /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB6EB1AE4835800A0468E /* ImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		F4D74ABB1AE4725000630239 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4D74ABC1AE4725000630239 /* GoogleImageSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleImageSearchTests.swift; sourceTree = "<group>"; };
 		F4D74AC61AE4734F00630239 /* ImageSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchController.swift; sourceTree = "<group>"; };
+		F4EFB6EB1AE4835800A0468E /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				F4D74AAA1AE4725000630239 /* Main.storyboard */,
 				F4D74AC61AE4734F00630239 /* ImageSearchController.swift */,
+				F4EFB6EB1AE4835800A0468E /* ImageCell.swift */,
 				F4D74AA41AE4725000630239 /* Supporting Files */,
 			);
 			path = GoogleImageSearch;
@@ -214,6 +217,7 @@
 			files = (
 				F4D74AA71AE4725000630239 /* AppDelegate.swift in Sources */,
 				F4D74AC71AE4734F00630239 /* ImageSearchController.swift in Sources */,
+				F4EFB6EC1AE4835800A0468E /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
