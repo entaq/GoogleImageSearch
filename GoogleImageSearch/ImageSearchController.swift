@@ -5,7 +5,7 @@ let scaleConstant : CGFloat = 0.67
 
 public class ImageSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     var searchResults = [GoogleImage]()
-    let google = GoogleImageSearch()
+    public var google = GoogleImageSearcher()
     var fetching = false
     var currentPage = 0
     var currentSearchTerm : String?

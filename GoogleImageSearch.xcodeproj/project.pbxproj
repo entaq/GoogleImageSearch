@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		067B0DFEC8889FA13A0D12FF /* Pods_GoogleImageSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11C966F718430C24A7038069 /* Pods_GoogleImageSearchTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F409FB4C1AE4C2D0008A0A29 /* GoogleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409FB4B1AE4C2CF008A0A29 /* GoogleImage.swift */; };
 		F4D74AA71AE4725000630239 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74AA61AE4725000630239 /* AppDelegate.swift */; };
 		F4D74AAC1AE4725000630239 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4D74AAA1AE4725000630239 /* Main.storyboard */; };
 		F4D74AAE1AE4725000630239 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4D74AAD1AE4725000630239 /* Images.xcassets */; };
@@ -15,7 +16,7 @@
 		F4D74ABD1AE4725000630239 /* GoogleImageSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74ABC1AE4725000630239 /* GoogleImageSearchTests.swift */; };
 		F4D74AC71AE4734F00630239 /* ImageSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D74AC61AE4734F00630239 /* ImageSearchController.swift */; };
 		F4EFB6EC1AE4835800A0468E /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB6EB1AE4835800A0468E /* ImageCell.swift */; };
-		F4EFB6F11AE4868A00A0468E /* GoogleImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB6F01AE4868A00A0468E /* GoogleImageLoader.swift */; };
+		F4EFB6F11AE4868A00A0468E /* GoogleImageSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EFB6F01AE4868A00A0468E /* GoogleImageSearcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		02E9048B87DD4B32A162CF35 /* Pods-GoogleImageSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleImageSearchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleImageSearchTests/Pods-GoogleImageSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		11C966F718430C24A7038069 /* Pods_GoogleImageSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleImageSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E84584A3C9EFC9EA5BD3AF8B /* Pods-GoogleImageSearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleImageSearchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleImageSearchTests/Pods-GoogleImageSearchTests.release.xcconfig"; sourceTree = "<group>"; };
+		F409FB4B1AE4C2CF008A0A29 /* GoogleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleImage.swift; sourceTree = "<group>"; };
 		F4D74AA11AE4725000630239 /* GoogleImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D74AA51AE4725000630239 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4D74AA61AE4725000630239 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +45,7 @@
 		F4D74ABC1AE4725000630239 /* GoogleImageSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleImageSearchTests.swift; sourceTree = "<group>"; };
 		F4D74AC61AE4734F00630239 /* ImageSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchController.swift; sourceTree = "<group>"; };
 		F4EFB6EB1AE4835800A0468E /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
-		F4EFB6F01AE4868A00A0468E /* GoogleImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleImageLoader.swift; sourceTree = "<group>"; };
+		F4EFB6F01AE4868A00A0468E /* GoogleImageSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleImageSearcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +146,8 @@
 		F4EFB6ED1AE4861900A0468E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F4EFB6F01AE4868A00A0468E /* GoogleImageLoader.swift */,
+				F4EFB6F01AE4868A00A0468E /* GoogleImageSearcher.swift */,
+				F409FB4B1AE4C2CF008A0A29 /* GoogleImage.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -317,8 +320,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F409FB4C1AE4C2D0008A0A29 /* GoogleImage.swift in Sources */,
 				F4D74AA71AE4725000630239 /* AppDelegate.swift in Sources */,
-				F4EFB6F11AE4868A00A0468E /* GoogleImageLoader.swift in Sources */,
+				F4EFB6F11AE4868A00A0468E /* GoogleImageSearcher.swift in Sources */,
 				F4D74AC71AE4734F00630239 /* ImageSearchController.swift in Sources */,
 				F4EFB6EC1AE4835800A0468E /* ImageCell.swift in Sources */,
 			);

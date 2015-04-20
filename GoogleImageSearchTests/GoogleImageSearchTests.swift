@@ -29,11 +29,15 @@ class GoogleImageSearchTests: QuickSpec {
         }
 
         describe("search text was entered") {
-            it("starts the search and shows the activity invicator") {
+            beforeEach {
                 viewController.searchField.text = "nadal"
                 viewController.textFieldShouldReturn(viewController.searchField)
+            }
+
+            it("starts the search and shows the activity invicator") {
                 expect(viewController.activityIndicator.hidden).to(beFalse())
             }
+
         }
     }
 }

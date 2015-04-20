@@ -1,14 +1,9 @@
 import UIKit
 
-class GoogleImage {
-    var thumbnail : UIImage?
-    // TODO: add other attributes in future like caption, page URL, image sizes
-}
-
-class GoogleImageSearch {
+public class GoogleImageSearcher {
     var searchResults = [GoogleImage]()
 
-    func searchForTerm(term: String, page: Int, completion: (results: [GoogleImage]?, error: NSError?) -> Void){
+    public func searchForTerm(term: String, page: Int, completion: (results: [GoogleImage]?, error: NSError?) -> Void){
 
         let escapedTerm = term.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         let URLString = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=\(escapedTerm)&rsz=8&start=\(page*8)"
