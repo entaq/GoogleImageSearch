@@ -1,32 +1,27 @@
 import UIKit
 
 let reuseIdentifier = "ImageCell"
+let scaleConstant : CGFloat = 0.67
 
 class ImageSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     var searchResults = [GoogleImage]()
     let google = GoogleImageSearch()
 
-    var fetching: Bool = false
+    var fetching = false
     var currentPage = 0
     var currentSearchTerm : String?
 
-
     func loadDataFromGoogle(){
-        //        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        //        textField.addSubview(activityIndicator)
-        //        activityIndicator.frame = textField.bounds
-        //        activityIndicator.startAnimating()
-
         google.searchForTerm(currentSearchTerm!, page: currentPage) {
             results, error in
-
-            //activityIndicator.removeFromSuperview()
-            if error != nil {
-//                println("Error searching : \(error)")
+            if let error = error {
+                var errorUI = UIAlertController(title: "Error", message: error.description, preferredStyle: .Alert)
+                errorUI.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                self.presentViewController(errorUI, animated: true, completion: nil)
             }
 
-            if results != nil {
-                self.searchResults += results!
+            if let results = results where results.count > 0 {
+                self.searchResults += results
                 self.fetching = false
 
                 var indexPaths = [AnyObject]()
@@ -86,11 +81,11 @@ class ImageSearchController: UICollectionViewController, UICollectionViewDelegat
 
     // MARK: UICollectionViewDelegateFlowLayout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-
         let googlePhoto =  photoForIndexPath(indexPath)
+
         if var size = googlePhoto.thumbnail?.size {
-            size.height = size.height * 0.67
-            size.width = size.width * 0.67
+            size.height = size.height * scaleConstant
+            size.width = size.width * scaleConstant
 
             return size
         }

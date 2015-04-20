@@ -2,34 +2,35 @@ import UIKit
 
 class GoogleImage {
     var thumbnail : UIImage?
+    // TODO: add other attributes in future like caption, page URL, image sizes
 }
 
 class GoogleImageSearch {
     var searchResults = [GoogleImage]()
 
-    func searchForTerm(searchTerm: String, page: Int, completion : (results: [GoogleImage]?, error : NSError?) -> Void){
+    func searchForTerm(term: String, page: Int, completion: (results: [GoogleImage]?, error: NSError?) -> Void){
 
-        let escapedTerm = searchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let escapedTerm = term.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         let URLString = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=\(escapedTerm)&rsz=8&start=\(page*8)"
         let searchURL = NSURL(string: URLString)!
 
         NSURLSession.sharedSession().dataTaskWithURL(searchURL, completionHandler: { (data, response, error) -> Void in
             if error != nil {
-                completion(results: nil,error: error)
+                completion(results: nil, error: error)
                 return
             }
 
-            var JSONError : NSError?
-            let resultsDictionary = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions(0), error: &JSONError) as? NSDictionary
-            if JSONError != nil {
-                completion(results: nil, error: JSONError)
+            var jsonError : NSError?
+            let resultsDictionary = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions(0), error: &jsonError) as? NSDictionary
+            if jsonError != nil {
+                completion(results: nil, error: jsonError)
                 return
             }
 
-            let photosContainer = resultsDictionary!["responseData"] as! NSDictionary
-            let photosReceived = photosContainer["results"] as! [NSDictionary]
+            let responeData = resultsDictionary!["responseData"] as! NSDictionary
+            let photoResults = responeData["results"] as! [NSDictionary]
 
-            let googlePhotos : [GoogleImage] = photosReceived.map {
+            let googlePhotos : [GoogleImage] = photoResults.map {
                 photoDictionary in
 
                 let thumbNailURL = photoDictionary["tbUrl"] as! String
@@ -45,5 +46,4 @@ class GoogleImageSearch {
             })
         }).resume()
     }
-
 }
